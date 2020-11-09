@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/CSS/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <img src="Pics/LOGO.png" alt="Logo" style="width:380px;height: auto;">
+        <h1>The Assignment</h1>
+
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+            </ul>
+        </nav>
+
+        <h4><a href="LogIn.html">Login</a></h4>
+    </header>
+    <div id="mainContainer">
+        @RenderBody()
+    </div>
+    <footer>
+        <h4>@DateTime.Now;</h4>
+    </footer>
+</body>
+</html>

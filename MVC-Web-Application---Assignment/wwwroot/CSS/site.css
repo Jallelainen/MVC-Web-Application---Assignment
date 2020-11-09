@@ -1,0 +1,43 @@
+﻿body {
+}
+
+header {
+    background-color: #d5d7c7;
+}
+.col > h1 {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+.col > ul {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+footer{
+    text-align: center;
+    background-color: #d5d7c7;
+}
+
+nav {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    display: inline;
+    margin: 10px;
+}
+
+a {
+    color: #cb410a;
+    text-align: center;
+}

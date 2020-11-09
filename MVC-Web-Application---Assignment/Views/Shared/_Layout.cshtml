@@ -4,28 +4,39 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="~/CSS/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
-        <img src="Pics/LOGO.png" alt="Logo" style="width:380px;height: auto;">
-        <h1>The Assignment</h1>
+        <div class="row">
+            <div class="col">
+                <h1>The Assignment</h1>
+            </div>
+            <div class="col">
+                <nav>
+                    <ul>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col">
+                <img src="Pics/LOGO.png" alt="Logo" style="width:380px;height: auto;">
+            </div>
+        </div>
 
-        <nav>
-            <ul>
-                <li>@Html.ActionLink("About", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
-            </ul>
-        </nav>
 
-        <h4><a href="LogIn.html">Login</a></h4>
     </header>
     <div id="mainContainer">
         @RenderBody()
     </div>
     <footer>
-        <h4>@DateTime.Now;</h4>
+        <h4>@DateTime.Now.ToShortDateString()</h4>
     </footer>
 </body>
 </html>

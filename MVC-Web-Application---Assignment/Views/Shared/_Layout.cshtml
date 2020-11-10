@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/CSS/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="~/CSS/site.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -19,14 +19,14 @@
             <div class="col">
                 <nav>
                     <ul>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+                        <li class="navButton">@Html.ActionLink("About", "About", "Home")</li>
+                        <li class="navButton">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li class="navButton">@Html.ActionLink("Projects", "Projects", "Home")</li>
                     </ul>
                 </nav>
             </div>
             <div class="col">
-                <img src="Pics/LOGO.png" alt="Logo" style="width:380px;height: auto;">
+                <img src="~/IMG/Logo.png" alt="Logo" class="responsivePic">
             </div>
         </div>
 
@@ -36,7 +36,8 @@
         @RenderBody()
     </div>
     <footer>
-        <h4>@DateTime.Now.ToShortDateString()</h4>
+        <h4>Marcus Jarlevid</h4>
+        <p>@DateTime.Now.ToShortDateString()</p>
     </footer>
 </body>
 </html>

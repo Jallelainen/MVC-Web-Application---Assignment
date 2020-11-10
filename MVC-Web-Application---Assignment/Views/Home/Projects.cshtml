@@ -2,3 +2,22 @@
 @{
     ViewBag.Title = "Projects";
 }
+
+@{
+    MVC_Web_Application___Assignment.Model.Project[] projectArray = new MVC_Web_Application___Assignment.Model.Project[7];
+    projectArray[0] = new MVC_Web_Application___Assignment.Model.Project("The Calculator (Assignment 1)", "The assignment is a basic Console-based calculator using C#. It's able to handle basic mathematical operations(addition, subtraction, multiplication, division), and presents the results in a consistent way.", "https://github.com/Jallelainen/Assignment-1-Calculator");
+    projectArray[1] = new MVC_Web_Application___Assignment.Model.Project("Hangmans Noose (Assignment 2)", "One player (in our case the application) thinks of a word and the other player(s) tries to guess it by suggesting letters. The word to guess is represented by a row of dashes where each dash represents a letter in the word", "https://github.com/Jallelainen/Assignment-2-Hangmans-noose");
+    projectArray[2] = new MVC_Web_Application___Assignment.Model.Project("To Do IT (Assignment 3)", "A “Todo app” in Net. Core. using knowledge I've gained so far. It involves a concept of central storage and the relation between classes 'Todo' and 'Person'.", "https://github.com/Jallelainen/Assignment-ToDoIT");
+    projectArray[3] = new MVC_Web_Application___Assignment.Model.Project("The Vending Machine (Assignment 4)", "A vending machine. It's able to take requests from the user as to what product it is supposed to return. It also takes payment, and sends the product back to the user with an appropriate amount of change.", "https://github.com/Jallelainen/Assignment4-Vending-Machine");
+    projectArray[4] = new MVC_Web_Application___Assignment.Model.Project("First HTML (Assignment 5)", "Two basic HTML structured pages. The first page is an Index page that will greet the visitors and present some articles and a bit of statistics on the side. Second page is a Login page that gives the user a form to fil in to sign in with (fake, no login service).", "https://github.com/Jallelainen/HTML-first/tree/master");
+    projectArray[5] = new MVC_Web_Application___Assignment.Model.Project("First CSS (Assignment 6)", "In this assignment, the HTML page you made in the HTML fundamentals assignment, is styled using using CSS", "https://github.com/Jallelainen/HTML-first/tree/HTML-First-CSS");
+    projectArray[6] = new MVC_Web_Application___Assignment.Model.Project("Javascript Sokoban (Assignment 7)", "A basic JavaScript game called Sokoban.", "https://github.com/Jallelainen/JavaScript-Assignment---Sokoban");
+}
+
+<h2>My Projects</h2>
+
+@foreach (var item in projectArray)
+{
+    <p><a href="@item.Link" class="linkButton"><b>@item.Name</b></a></p>
+    <p>@item.Description</p>
+}

@@ -1,7 +1,21 @@
 ﻿
-@{ 
+@{
     ViewBag.Title = "About";
 }
 
+@{
+    MVC_Web_Application___Assignment.Model.Person mackan = new MVC_Web_Application___Assignment.Model.Person("Marcus Jarlevid", 26, "Vägallén 123", 12345, "Växjå", 1234567890, "mack@email.se");
+}
+
 <h2>About me</h2>
+<img src="/IMG/me.png" alt="Pic of Me" class="responsivePic" />
+<p><b>Namn:</b> @mackan.Name</p>
+<p><b>Ålder:</b> @mackan.Age</p>
+<p>
+    <b>Om mig: </b>Under de senaste tre åren har jag studerat på interaktionsdesigns-programmet vid
+    Linnéuniversitetet i Kalmar där jag precis skrivit min C-uppsats. Nyligen har min flickvän och jag
+    bosatt oss i Växjö tillsammans. Min motivation och drivkraft ligger just nu i att hitta
+    en stabil grund att bygga min framtid på här i Växjö. Ser man till långsiktiga mål önskar jag
+    bygga erfarenhet inom branschen och utvecklas som interaktions- och UX-designer.
+</p>
 

@@ -2,3 +2,33 @@
 @{
     ViewBag.Title = "Contact";
 }
+
+@{ 
+    MVC_Web_Application___Assignment.Model.Person mackan = new MVC_Web_Application___Assignment.Model.Person("Marcus Jarlevid", 26, "Vägallén 123", 12345, "Växjå", 1234567890, "mack@email.se");
+}
+
+
+<h2>Contact</h2>
+
+<table>
+    <tr>
+        <td><b>Gatunamn:</b></td>
+        <td>@mackan.Street</td>
+    </tr>
+    <tr>
+        <td><b>Postnummer:</b></td>
+        <td>@mackan.PostNum</td>
+    </tr>
+    <tr>
+        <td><b>Stad:</b></td>
+        <td>@mackan.City</td>
+    </tr>
+    <tr>
+        <td><b>Telefonnummer:</b></td>
+        <td>@mackan.TelNum</td>
+    </tr>
+    <tr>
+        <td><b>E-post:</b></td>
+        <td>@mackan.Email</td>
+    </tr>
+</table>

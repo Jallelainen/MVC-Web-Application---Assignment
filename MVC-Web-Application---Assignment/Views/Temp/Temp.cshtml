@@ -1,0 +1,14 @@
+﻿@model Temp
+@{ 
+    ViewBag.title = "Check temperature";
+}
+
+<h1>Temperature Checkinator 2000</h1>
+<p>Please enter your temperature (Celsius) in the field below.</p>
+
+<form asp-action="" method="post">
+    <label asp-for="temperature"></label>
+    <input asp-for="temperature" />
+
+    <input type="submit" value="Check!"/>
+</form>

@@ -34,6 +34,12 @@ namespace MVC_Web_Application___Assignment
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "tempCheck",
+                    pattern: "Temp/Temperature/{id?}",
+                    defaults: new { controller = "Temp", action = "Index" }
+                    );
+
                 endpoints.MapDefaultControllerRoute();
             });
         }

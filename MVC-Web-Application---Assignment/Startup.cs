@@ -40,6 +40,11 @@ namespace MVC_Web_Application___Assignment
                     pattern: "Temp-Check",
                     defaults: new { controller = "Temp", action = "Index" }
                     );
+                endpoints.MapControllerRoute(
+                    name: "guessGame",
+                    pattern: "Guessing-Game",
+                    defaults: new { controller = "GuessGame", action = "Index" }
+                    );
 
                 endpoints.MapControllerRoute(
                     name: "default",

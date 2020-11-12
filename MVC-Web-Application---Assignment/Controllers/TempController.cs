@@ -9,26 +9,22 @@ namespace MVC_Web_Application___Assignment.Controllers
 {
     public class TempController : Controller
     {
-        TempCheck _tempCheck = new TempCheck();
-
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult TempCheck()
+        public IActionResult Temp()
         {
             return View();
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult TempCheck(Temp temp)
+        public IActionResult Temp(Temp temp)
         {
-            _tempCheck.Check(temp.temperature);
-
-            return RedirectToAction(nameof(Index));
+            return View("Index", temp);
         }
     }
 }

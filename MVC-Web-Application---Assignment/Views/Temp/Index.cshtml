@@ -6,7 +6,18 @@
 <h1>Temperature Checkinator 2000</h1>
 <p>So you want to know if you have fever? Or hypotermia maybe? Easy, just press the button below to check!</p>
 <a asp-action="Temp">Check Temperature!</a>
-@if (true)
+@if (Model != null)
 {
-
+    @if (Model.hypo == true)
+    {
+        <p>Your temperature(@Model.temperature C) is below 35 degrees Celsius, which means that you have hypotermia. brrr...</p>
+    }
+    else if (Model.fever == true)
+    {
+        <p>Your temperature(@Model.temperature C) is over 38 degrees Celsius, which means that you have a fever. Maybe rest?</p>
+    }
+    else if (Model.fever == false && Model.hypo == false)
+    {
+        <p>Your temperature are within an acceptable range. You may go on with your life.</p>
+    }
 }

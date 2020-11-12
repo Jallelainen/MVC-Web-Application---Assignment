@@ -9,17 +9,30 @@ namespace MVC_Web_Application___Assignment.Model
     {
 
         public int temperature { get; set; }
-        public bool hypo { get; set; }
-        public bool fever { get; set; }
+        public bool hypo 
+        { 
+            get
+            {
+                return temperature < 35 ? true : false;
+            } 
+        }
+        public bool fever 
+        {
+            get
+            {
+                return temperature > 37 ? true : false;
+            } 
+
+        }
+
+        public Temp()
+        {
+            
+        }
 
         public Temp(int Temperature)
         {
             temperature = Temperature;
-        }
-        public Temp(int Temperature, bool Hypo, bool Fever) : this(Temperature)
-        {
-            hypo = Hypo;
-            fever = Fever;
         }
 
     }

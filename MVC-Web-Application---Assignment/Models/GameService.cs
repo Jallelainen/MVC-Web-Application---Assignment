@@ -21,13 +21,7 @@ namespace MVC_Web_Application___Assignment.Model
         public GuessGame CheckError(int guess)
         {
 
-
-            if (guess == 0)
-            {
-                guessGame.ErrorMessage = "No input recognized";
-                guessGame.Error = true;
-            }
-            else if (guess > 100)
+            if (guess > 100)
             {
                 guessGame.ErrorMessage = "Input too high";
                 guessGame.Error = true;

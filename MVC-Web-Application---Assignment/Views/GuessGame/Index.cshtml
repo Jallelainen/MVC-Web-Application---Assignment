@@ -8,8 +8,7 @@
 <h5>A secret number between 1 and 100 has been generated. Can you guess which one it is?</h5>
 
 <form asp-action="Index" method="post">
-    <label asp-for="Guess"><input asp-for="Guess" /></label>
-
+    <input asp-for="Guess" required />
     <input type="submit" value="Guess" />
 
 </form>

@@ -1,5 +1,42 @@
 ﻿
+@model GuessGame
 @{
     ViewBag.Title = "Guessing Game";
 }
 
+<h1>Guess the Number</h1>
+<h5>A secret number between 1 and 100 has been generated. Can you guess which one it is?</h5>
+
+<form asp-action="Index" method="post">
+    <label asp-for="Guess"><input asp-for="Guess" /></label>
+
+    <input type="submit" value="Guess" />
+
+</form>
+
+@if (Model != null)
+{
+    if (Model.Error == true)
+    {
+        <p style="color: red">@Model.ErrorMessage</p>
+    }
+    else
+    {
+        if (Model.Guess < ViewBag.secretNum)
+        {
+            <p>Your guess was lower than the secret number</p>
+        }
+        else if (Model.Guess > ViewBag.secretNum)
+        {
+            <p>Your guess was higher than the secret number</p>
+        }
+        else if (Model.Guess == ViewBag.secretNum)
+        {
+            <h3>Correct! That was the right number!</h3>
+            <form asp-action="Index" method="get">
+                <input type="submit" value="Generate new number!" />
+            </form>
+        }
+    }
+
+}

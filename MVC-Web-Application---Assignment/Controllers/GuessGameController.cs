@@ -16,8 +16,7 @@ namespace MVC_Web_Application___Assignment.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            guessGame.SecretNumber = gameService.NewGame();
-            HttpContext.Session.SetInt32("SecretNum", guessGame.SecretNumber);
+            HttpContext.Session.SetInt32("SecretNum", gameService.NewGame());
 
             return View();
         }
@@ -27,7 +26,7 @@ namespace MVC_Web_Application___Assignment.Controllers
         public IActionResult Index(GuessGame guessGame)
         {
             ViewBag.secretNum = HttpContext.Session.GetInt32("SecretNum");
-            guessGame = gameService.CheckError(guessGame.Guess);
+            guessGame = gameService.Check(guessGame.Guess, ViewBag.secretNum);
 
             return View("Index", guessGame);
         }

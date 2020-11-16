@@ -10,6 +10,8 @@ namespace MVC_Web_Application___Assignment.Model
         public int Guess { get; set; }
         public int SecretNumber { get; set; }
         public bool Error { get; set; }
+        public bool Win { get; set; }
         public string ErrorMessage { get; set; }
+        public string GameMessage { get; set; }
     }
 }

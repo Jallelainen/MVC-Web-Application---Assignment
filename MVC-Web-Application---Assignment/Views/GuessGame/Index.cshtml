@@ -21,17 +21,14 @@
     }
     else
     {
-        if (Model.Guess < ViewBag.secretNum)
+        if (Model.Win == false)
         {
-            <p>Your guess was lower than the secret number</p>
+            <p>@Model.GameMessage</p>
         }
-        else if (Model.Guess > ViewBag.secretNum)
+      
+        else
         {
-            <p>Your guess was higher than the secret number</p>
-        }
-        else if (Model.Guess == ViewBag.secretNum)
-        {
-            <h3>Correct! That was the right number!</h3>
+            <h3>@Model.GameMessage</h3>
             <form asp-action="Index" method="get">
                 <input type="submit" value="Generate new number!" />
             </form>

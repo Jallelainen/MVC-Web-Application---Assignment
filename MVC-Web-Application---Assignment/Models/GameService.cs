@@ -18,19 +18,30 @@ namespace MVC_Web_Application___Assignment.Model
             return guessGame.SecretNumber;
         }
 
-        public GuessGame CheckError(int guess)
+        public GuessGame Check(int guess, int secretNum)
         {
-
-            if (guess > 100)
+            //Check error
+            if (guess < 1 || guess > 100)
             {
-                guessGame.ErrorMessage = "Input too high";
+                guessGame.ErrorMessage = "Input outside of 1 to 100 range";
                 guessGame.Error = true;
             }
-            else if (guess < 1)
+            
+            //Check guess
+            if (guess < secretNum)
             {
-                guessGame.ErrorMessage = "Input too low";
-                guessGame.Error = true;
+                guessGame.GameMessage = "Your guess was lower than the secret number";
             }
+            else if (guess > secretNum)
+            {
+                guessGame.GameMessage = "Your guess was higher than the secret number";
+            }
+            else
+            {
+                guessGame.GameMessage = "Correct! That was the right number!";
+                guessGame.Win = true;
+            }
+            
 
             guessGame.Guess = guess;
             return guessGame;

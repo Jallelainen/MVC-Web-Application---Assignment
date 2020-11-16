@@ -22,7 +22,7 @@ namespace MVC_Web_Application___Assignment
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(1200);
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });

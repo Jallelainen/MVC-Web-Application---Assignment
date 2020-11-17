@@ -3,9 +3,10 @@
     min-height: 400px;
 }
 
-header {
+.row {
     background-color: #d5d7c7;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 .col > h1 {
     margin: auto;
@@ -20,7 +21,7 @@ header {
 }
 
 .responsivePic {
-    width: 50%;
+    width: 25%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -52,17 +53,14 @@ ul {
 
 .navButton{
     color: white;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 a:hover {
     color: antiquewhite;
 }
 
-
-li {
-    display: inline-block;
-    margin-top: 20px;
-}
 
 a {
     margin-bottom:10px;

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVC_Web_Application___Assignment.Model
+namespace MVC_Web_Application___Assignment.Models
 {
     public class GameService
     {
         GuessGame guessGame = new GuessGame();
+        Highscore highscore = new Highscore();
 
         public int NewGame()
         {
@@ -55,5 +56,30 @@ namespace MVC_Web_Application___Assignment.Model
             return counter;
         }
 
+
+        public Highscore CheckHigh(int playerscore, int high1, int high2, int high3)
+        {
+            highscore.High1 = high1;
+            highscore.High2 = high2;
+            highscore.High3 = high3;
+
+            if (high1 > 0 && playerscore < high1 || high1 == 0 && playerscore > high1) 
+            {
+                highscore.High3 = highscore.High2;
+                highscore.High2 = highscore.High1; 
+                highscore.High1 = playerscore;  
+            }
+            else if (high2 > 0 && playerscore < high2 || high2 == 0 && playerscore > high2) 
+            {
+                highscore.High3 = highscore.High2;
+                highscore.High2 = playerscore; 
+            }
+            else if (high3 > 0 && playerscore < high3 || high3 == 0 && playerscore > high3) 
+            { 
+                highscore.High3 = playerscore;  
+            }
+
+            return highscore;
+        }
     }
 }

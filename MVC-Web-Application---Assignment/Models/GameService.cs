@@ -26,11 +26,12 @@ namespace MVC_Web_Application___Assignment.Model
                 guessGame.ErrorMessage = "Input outside of 1 to 100 range";
                 guessGame.Error = true;
             }
-            
+
             //Check guess
             if (guess < secretNum)
             {
                 guessGame.GameMessage = "Your guess was lower than the secret number";
+
             }
             else if (guess > secretNum)
             {
@@ -41,11 +42,17 @@ namespace MVC_Web_Application___Assignment.Model
                 guessGame.GameMessage = "Correct! That was the right number!";
                 guessGame.Win = true;
             }
-            
+
 
             guessGame.Guess = guess;
             return guessGame;
 
+        }
+
+        public int Count(int counter)
+        {
+            counter++;
+            return counter;
         }
 
     }

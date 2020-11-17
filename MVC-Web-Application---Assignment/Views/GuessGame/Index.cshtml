@@ -18,21 +18,25 @@
     if (Model.Error == true)
     {
         <p style="color: red">@Model.ErrorMessage</p>
+        <p><b>Guesses:</b> @ViewBag.counter</p>
     }
     else
     {
         if (Model.Win == false)
         {
             <p>@Model.GameMessage</p>
+            <p><b>Guesses:</b> @ViewBag.counter</p>
         }
-      
+
         else
         {
             <h3>@Model.GameMessage</h3>
+            <p><b>Guesses:</b> @ViewBag.counter</p>
             <form asp-action="Index" method="get">
                 <input type="submit" value="Generate new number!" />
             </form>
         }
     }
+
 
 }

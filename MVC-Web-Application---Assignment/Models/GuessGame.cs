@@ -9,6 +9,7 @@ namespace MVC_Web_Application___Assignment.Models
     {
         public int Guess { get; set; }
         public int SecretNumber { get; set; }
+        public int Counter { get; set; }
         public bool Error { get; set; }
         public bool Win { get; set; }
         public string ErrorMessage { get; set; }

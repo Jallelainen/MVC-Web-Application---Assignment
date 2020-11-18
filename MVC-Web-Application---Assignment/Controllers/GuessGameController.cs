@@ -13,18 +13,24 @@ namespace MVC_Web_Application___Assignment.Controllers
         Highscore highscore = new Highscore();
         GuessGame guessGame = new GuessGame();
         GameService gameService = new GameService();
-        static int Counter;
+        
 
         [HttpGet]
         public IActionResult Index()
         {
+            //Set random number
             HttpContext.Session.SetInt32("SecretNum", gameService.NewGame());
+            
+            //Load highscores
             ViewBag.High1 = HttpContext.Session.GetInt32("High1");
             ViewBag.High2 = HttpContext.Session.GetInt32("High2");
             ViewBag.High3 = HttpContext.Session.GetInt32("High3");
-            Counter = 0;
 
-            // sets all scores to zero
+            //Sets counter at zero and stores it in session
+            guessGame.Counter = 0;
+            HttpContext.Session.SetInt32("count", guessGame.Counter);
+
+            //Sets all scores to zero if it is first time visiting page
             if (ViewBag.High1 == null && ViewBag.High1 == null && ViewBag.High1 == null)
             {
                 HttpContext.Session.SetInt32("High1", 0);
@@ -44,27 +50,38 @@ namespace MVC_Web_Application___Assignment.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(GuessGame guessGame)
         {
-
+            //Gets high scores
             ViewBag.High1 = HttpContext.Session.GetInt32("High1");
             ViewBag.High2 = HttpContext.Session.GetInt32("High2");
             ViewBag.High3 = HttpContext.Session.GetInt32("High3");
 
+            //Gets secret number
             ViewBag.secretNum = HttpContext.Session.GetInt32("SecretNum");
             guessGame = gameService.Check(guessGame.Guess, ViewBag.secretNum);
 
-            if (guessGame.Error == false || guessGame.Win == false)
+            //Gets counter, converts it to int
+            var count = HttpContext.Session.GetInt32("count");
+            if (count != null)
             {
-                Counter = gameService.Count(Counter);
-                ViewBag.counter = Counter;
+                guessGame.Counter = (int)count;
+            }
+
+            //Increases counter by 1 of guess is valid.
+            if (guessGame.Error == false && guessGame.Win == false)
+            {
+                guessGame.Counter = gameService.Count(guessGame.Counter);
+                HttpContext.Session.SetInt32("count", guessGame.Counter);
+                ViewBag.counter = guessGame.Counter;
             }
             else
             {
-                ViewBag.counter = Counter;
+                ViewBag.counter = guessGame.Counter;
             }
 
+            //Compares and saves Highscore if correct guess.
             if (guessGame.Win == true)
             {
-                highscore = gameService.CheckHigh(Counter, ViewBag.High1, ViewBag.High2, ViewBag.High3);
+                highscore = gameService.CheckHigh(guessGame.Counter, ViewBag.High1, ViewBag.High2, ViewBag.High3);
                 ViewBag.High1 = highscore.High1;
                 ViewBag.High2 = highscore.High2;
                 ViewBag.High3 = highscore.High3;

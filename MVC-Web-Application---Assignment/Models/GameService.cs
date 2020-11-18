@@ -63,6 +63,7 @@ namespace MVC_Web_Application___Assignment.Models
             highscore.High2 = high2;
             highscore.High3 = high3;
 
+            //compares player score with leaderboard
             if (high1 > 0 && playerscore < high1 || high1 == 0 && playerscore > high1) 
             {
                 highscore.High3 = highscore.High2;
